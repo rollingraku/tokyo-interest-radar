@@ -3,7 +3,7 @@ CONTENT_FIELDS = (
     "title", "description", "location", "startAt", "endAt", "eventDates",
     "applicationDeadline", "registrationStatus", "officialUrl", "imageUrl",
     "contentType", "releaseAt", "releaseLabel", "publishedAt", "priceLabel",
-    "interestIds", "brand", "region", "sourceActive",
+    "interestIds", "brand", "region", "sourceActive", "variants",
 )
 
 

@@ -12,9 +12,11 @@ import requests
 if __package__:
     from .descriptions import describe_event
     from .reborn_images import apply_reborn_image
+    from .product_series import group_reborn_series
 else:
     from descriptions import describe_event
     from reborn_images import apply_reborn_image
+    from product_series import group_reborn_series
 
 JUMP_URL = "https://www.shonenjump.com/j/jumpcalendar/sakuhin/reborn/"
 NINTENDO_RSS = "https://www.nintendo.com/jp/topics/c/feed/rss/"
@@ -87,7 +89,7 @@ def reborn_goods(html, today, now):
             event["sourceEvidence"] = {"releaseLabel": release, "title": title, "maker": maker, "price": price}
             apply_reborn_image(event)
             events.append(event)
-    return events
+    return group_reborn_series(events)
 
 
 def nintendo_feed(xml, today, now):

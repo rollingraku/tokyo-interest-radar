@@ -36,7 +36,7 @@
       "sourceUrl": "https://www.shonenjump.com/j/jumpcalendar/sakuhin/reborn/",
       "lastAttemptAt": "2026-10-26T20:46:03.187744+09:00",
       "lastSuccessfulAt": "2026-10-26T20:46:03.187744+09:00",
-      "eventCount": 15,
+      "eventCount": 5,
       "status": "success"
     },
     "nintendo": {
@@ -58,5 +58,5 @@
   },
   "successfulSourceCount": 6,
   "attemptedSourceCount": 6,
-  "eventCount": 54
+  "eventCount": 44
 }

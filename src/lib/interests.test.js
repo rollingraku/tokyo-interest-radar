@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { matchesTopic, matchesAudience, contentLabel, newestFirst } from "./interests.js";
+import { matchesTopic, matchesAudience, contentLabel, newestFirst, migrateFavorites } from "./interests.js";
 
 const { topics } = JSON.parse(readFileSync(new URL("../data/interests.json", import.meta.url)));
 
@@ -33,4 +33,10 @@ test("newest content appears first; fetch time is ignored and input remains unch
   ];
   assert.deepEqual(newestFirst(items).map((item) => item.id), ["new", "old", "unknown"]);
   assert.equal(items[0].id, "old");
+});
+
+test("role favorites migrate to a single series without losing unrelated favorites", () => {
+  const items = [{ id: "series", legacyIds: ["mukuro", "hibari"] }, { id: "other" }];
+  assert.deepEqual(migrateFavorites(["mukuro", "hibari", "other", "missing"], items), ["series", "other"]);
+  assert.deepEqual(migrateFavorites(["series", "other"], items), ["series", "other"]);
 });

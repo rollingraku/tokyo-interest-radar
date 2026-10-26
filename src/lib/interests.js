@@ -25,3 +25,12 @@ export function newestFirst(items) {
   };
   return [...items].sort((a, b) => timestamp(b) - timestamp(a));
 }
+
+export function migrateFavorites(saved, items) {
+  const ids = new Map();
+  for (const item of items) {
+    ids.set(item.id, item.id);
+    for (const previousId of item.legacyIds || []) ids.set(previousId, item.id);
+  }
+  return [...new Set(saved.map((id) => ids.get(id)).filter(Boolean))];
+}

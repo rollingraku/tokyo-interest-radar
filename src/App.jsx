@@ -3,7 +3,7 @@ import "./App.css";
 import eventData from "./data/events.json";
 import updateStatus from "./data/update_status.json";
 import interestConfig from "./data/interests.json";
-import { matchesTopic, matchesAudience, contentLabel, newestFirst } from "./lib/interests";
+import { matchesTopic, matchesAudience, contentLabel, newestFirst, migrateFavorites } from "./lib/interests";
 
 const categories = [
   { id: "all", label: "全部", icon: "✦" },
@@ -132,9 +132,7 @@ function App() {
   const [favorites, setFavorites] = useState(() => {
   const savedFavorites = readFavorites();
 
-  const validIds = new Set(events.map((event) => event.id));
-
-  return savedFavorites.filter((id) => validIds.has(id));
+  return migrateFavorites(savedFavorites, events);
 });
 
   useEffect(() => {
@@ -161,6 +159,7 @@ function App() {
         event.location,
         event.tag, event.brand, event.releaseLabel,
         ...(event.interestIds || []).map((id) => interestConfig.topics.find((entry) => entry.id === id)?.label || id),
+        ...(event.variants || []).map((variant) => variant.title),
       ]
         .join(" ")
         .toLocaleLowerCase();
@@ -420,6 +419,17 @@ function App() {
                       <h3>{event.title}</h3>
                       <p className="card-description">{event.description}</p>
                       <p className="card-source">来源：{event.sourceName}</p>
+                      {event.variants?.length > 0 && (
+                        <details className="series-variants">
+                          <summary>包含 {event.variants.length} 款 · 查看角色与商品</summary>
+                          <ul>{event.variants.map((variant) => (
+                            <li key={variant.id}>
+                              <strong>{variant.title}</strong>
+                              <span>{variant.priceLabel} · {variant.releaseLabel}</span>
+                            </li>
+                          ))}</ul>
+                        </details>
+                      )}
 
                       <div className="event-details">
                         <div className="detail-row">

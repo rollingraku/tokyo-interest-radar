@@ -1018,3 +1018,10 @@
 .topic-card:focus-visible, .audience-tabs button:focus-visible, .content-type-tabs button:focus-visible { outline: 3px solid #79976e; outline-offset: 3px; }
 @media (max-width: 900px) { .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .interest-hub { padding: 18px; } .channel-grid { grid-template-columns: 1fr; } .topic-card { padding: 14px; } .cover-date { max-width: calc(100% - 94px); font-size: 10px; } }
+
+.series-variants { margin: 0 0 18px; color: #52684b; font-size: 12px; line-height: 1.7; }
+.series-variants summary { cursor: pointer; font-weight: 600; }
+.series-variants ul { padding: 0; margin: 12px 0 0; list-style: none; }
+.series-variants li { padding: 9px 0; border-top: 1px solid #e8ece3; }
+.series-variants strong, .series-variants span { display: block; font-size: 11px; font-weight: 400; }
+.series-variants span { color: #7b8375; margin-top: 4px; }
