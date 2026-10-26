@@ -1,0 +1,122 @@
+{
+  "region": "日本发售为主；线下活动为东京及周边",
+  "brands": [
+    "Dior",
+    "CHANEL",
+    "YSL",
+    "Armani"
+  ],
+  "topics": [
+    {
+      "id": "reborn",
+      "label": "家庭教师 REBORN!",
+      "icon": "🔥",
+      "owner": "mine",
+      "description": "活动、官方消息与周边发售",
+      "keywords": [
+        "家庭教師",
+        "REBORN",
+        "リボーン",
+        "家庭教师"
+      ]
+    },
+    {
+      "id": "lipstick",
+      "label": "口红新品",
+      "icon": "💄",
+      "owner": "mine",
+      "description": "Dior · CHANEL · YSL · Armani 日本新品与限定色",
+      "keywords": []
+    },
+    {
+      "id": "game_merch",
+      "label": "游戏周边与联名",
+      "icon": "🎮",
+      "owner": "boyfriend",
+      "description": "官方周边、amiibo 与联名消息",
+      "keywords": []
+    },
+    {
+      "id": "splatoon",
+      "label": "Splatoon 3",
+      "icon": "🦑",
+      "owner": "boyfriend",
+      "description": "Splatoon 系列官方资讯、周边与联名",
+      "keywords": [
+        "スプラトゥーン",
+        "splatoon",
+        "喷射战士",
+        "斯普拉遁"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "REBORN! 官方动画资讯",
+      "url": "https://khreborn-anime.jp/",
+      "topics": [
+        "reborn"
+      ],
+      "mode": "link",
+      "note": "官网限制自动访问，暂提供官方入口"
+    },
+    {
+      "label": "集英社 REBORN! 商品日历",
+      "url": "https://www.shonenjump.com/j/jumpcalendar/sakuhin/reborn/",
+      "topics": [
+        "reborn"
+      ],
+      "mode": "auto",
+      "sourceKey": "reborn_goods",
+      "note": "自动读取商品目录；月份信息保持官方原精度"
+    },
+    {
+      "label": "任天堂官方资讯 / Splatoon 3",
+      "url": "https://www.nintendo.com/jp/switch/av5ja/index.html",
+      "topics": [
+        "splatoon",
+        "game_merch"
+      ],
+      "mode": "auto",
+      "sourceKey": "nintendo",
+      "note": "官方 RSS 最新十篇与 Splatoon 3 官网公告；不是全网收录"
+    },
+    {
+      "label": "Dior 日本新品",
+      "url": "https://www.dior.com/ja_jp/beauty/page/all-new-arrivals.html",
+      "topics": [
+        "lipstick"
+      ],
+      "mode": "auto",
+      "sourceKey": "dior",
+      "note": "自动筛选新品与限定栏目里的唇妆；不推测发售日"
+    },
+    {
+      "label": "CHANEL 日本唇妆",
+      "url": "https://www.chanel.com/jp/makeup/lips/c/5x1x1/",
+      "topics": [
+        "lipstick"
+      ],
+      "mode": "link",
+      "note": "官网限制自动访问，暂提供官方入口"
+    },
+    {
+      "label": "YSL 日本新品与限定",
+      "url": "https://www.yslb.jp/new-limited/",
+      "topics": [
+        "lipstick"
+      ],
+      "mode": "link",
+      "note": "官网限制自动访问，暂提供官方入口"
+    },
+    {
+      "label": "Armani Beauty 日本官方店",
+      "url": "https://item.rakuten.co.jp/armanibeauty/c/0000000080/",
+      "topics": [
+        "lipstick"
+      ],
+      "mode": "link",
+      "note": "日本独立站未能连通，暂提供品牌官方店入口"
+    }
+  ]
+}

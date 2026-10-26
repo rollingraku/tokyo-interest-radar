@@ -35,6 +35,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - run: node --test src/lib/interests.test.js
       - run: npm run build
       - name: Save updated data
         run: |

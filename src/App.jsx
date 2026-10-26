@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import eventData from "./data/events.json";
 import updateStatus from "./data/update_status.json";
+import interestConfig from "./data/interests.json";
+import { matchesTopic, matchesAudience, contentLabel } from "./lib/interests";
 
 const categories = [
   { id: "all", label: "全部", icon: "✦" },
@@ -71,6 +73,14 @@ function formatRegistration(event) {
   return labels[event.registrationStatus] || "待确认";
 }
 
+function itemDate(event) {
+  if (event.contentType === "news" || event.contentType === "collab") {
+    return event.publishedAt ? `${event.historical ? "历史公告" : "资讯发布"} · ${event.publishedAt.replaceAll("-", "/")}` : "资讯日期待确认";
+  }
+  if (event.contentType === "product") return event.releaseAt ? formatDate(event.releaseAt) : event.releaseLabel || "发售日待公布";
+  return event.eventDates?.length > 1 ? "多个举办日 · 见下方" : formatPeriod(event.startAt, event.endAt);
+}
+
 function EventCover({ event, children }) {
   const [failedUrl, setFailedUrl] = useState(null);
   const hasImage = event.imageUrl && failedUrl !== event.imageUrl;
@@ -106,7 +116,7 @@ function EventCover({ event, children }) {
           <span className="cover-bottom">{event.tag} · TOKYO RADAR 精选</span>
         </>
       )}
-      <span className="cover-date">{event.eventDates?.length > 1 ? "多个举办日 · 见下方" : formatPeriod(event.startAt, event.endAt)}</span>
+      <span className="cover-date">{itemDate(event)}</span>
       {children}
     </div>
   );
@@ -114,6 +124,9 @@ function EventCover({ event, children }) {
 
 function App() {
   const [category, setCategory] = useState("all");
+  const [audience, setAudience] = useState("all");
+  const [topic, setTopic] = useState("all");
+  const [contentType, setContentType] = useState("all");
   const [view, setView] = useState("all");
   const [keyword, setKeyword] = useState("");
   const [favorites, setFavorites] = useState(() => {
@@ -146,14 +159,18 @@ function App() {
         event.title,
         event.description,
         event.location,
-        event.tag,
+        event.tag, event.brand, event.releaseLabel,
+        ...(event.interestIds || []).map((id) => interestConfig.topics.find((entry) => entry.id === id)?.label || id),
       ]
         .join(" ")
         .toLocaleLowerCase();
 
-      return categoryMatch && favoriteMatch && searchText.includes(query);
+      return categoryMatch && favoriteMatch && searchText.includes(query)
+        && matchesAudience(event, audience, interestConfig.topics)
+        && (topic === "all" || matchesTopic(event, topic, interestConfig.topics))
+        && (contentType === "all" || (event.contentType || "event") === contentType);
     });
-  }, [category, view, keyword, favorites]);
+  }, [category, view, keyword, favorites, audience, topic, contentType]);
 
   function toggleFavorite(id) {
     setFavorites((current) =>
@@ -165,6 +182,9 @@ function App() {
 
   function resetFilters() {
     setCategory("all");
+    setAudience("all");
+    setTopic("all");
+    setContentType("all");
     setKeyword("");
     setView("all");
   }
@@ -254,6 +274,51 @@ function App() {
             <span className="demo-label">✳ OFFICIAL SOURCES · 官方来源</span>
           </div>
 
+          <section className="interest-hub" aria-label="我们关注的内容">
+            <div className="interest-heading">
+              <div><span className="section-kicker">OUR LITTLE RADAR</span><h3>两个人的兴趣雷达</h3></div>
+              <span className="interest-region">日本发售优先 · 东京及周边活动</span>
+            </div>
+            <div className="audience-tabs" aria-label="兴趣视角">
+              {[{ id: "all", label: "我们一起看" }, { id: "mine", label: "我关注的" }, { id: "boyfriend", label: "男朋友关注的" }].map((entry) => (
+                <button type="button" key={entry.id} aria-pressed={audience === entry.id}
+                  onClick={() => { setAudience(entry.id); setTopic("all"); setCategory("all"); }}>
+                  {entry.label}
+                </button>
+              ))}
+            </div>
+            <div className="topic-grid">
+              {interestConfig.topics.filter((entry) => audience === "all" || entry.owner === audience).map((entry) => (
+                <button type="button" key={entry.id} className={`topic-card ${topic === entry.id ? "active" : ""}`}
+                  aria-pressed={topic === entry.id}
+                  onClick={() => { setTopic(topic === entry.id ? "all" : entry.id); setCategory("all"); }}>
+                  <span className="topic-icon" aria-hidden="true">{entry.icon}</span>
+                  <strong>{entry.label}</strong><small>{entry.description}</small>
+                  <span className="topic-count">{events.filter((item) => matchesTopic(item, entry.id, interestConfig.topics)).length} 条内容 ↗</span>
+                </button>
+              ))}
+            </div>
+            <details className="interest-channels">
+              <summary>关注的官方渠道 · 查看接入情况</summary>
+              <div className="channel-grid">
+                {interestConfig.sources.filter((source) => topic === "all" || source.topics.includes(topic)).map((source) => {
+                  const report = updateStatus.sources?.[source.sourceKey];
+                  return <a key={source.label} href={source.url} target="_blank" rel="noopener noreferrer">
+                    <strong>{source.label} ↗</strong>
+                    <span>{source.mode === "link" ? "仅官网入口" : report?.status === "success" ? "已自动同步" : "自动同步暂不可用"}</span>
+                    <small>{source.note}</small>
+                  </a>;
+                })}
+              </div>
+            </details>
+          </section>
+
+          <div className="content-type-tabs" aria-label="内容类型">
+            {[{ id: "all", label: "全部类型" }, { id: "event", label: "线下活动" }, { id: "product", label: "新品 / 周边" }, { id: "news", label: "官方资讯" }, { id: "collab", label: "联名资讯" }].map((entry) => (
+              <button key={entry.id} type="button" aria-pressed={contentType === entry.id} onClick={() => setContentType(entry.id)}>{entry.label}</button>
+            ))}
+          </div>
+
           <div className="toolbar">
             <div className="category-list" aria-label="活动分类">
               {categories.map((item) => (
@@ -278,7 +343,7 @@ function App() {
                 type="search"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
-                placeholder="搜索活动、地点..."
+                placeholder="搜索作品、品牌、周边、地点..."
                 aria-label="搜索活动或地点"
               />
             </label>
@@ -292,7 +357,7 @@ function App() {
                 onClick={() => setView("all")}
                 aria-pressed={view === "all"}
               >
-                全部活动
+                全部内容
               </button>
 
               <button
@@ -307,7 +372,7 @@ function App() {
             </div>
 
             <span className="result-count">
-              SHOWING {visibleEvents.length} EVENTS
+              SHOWING {visibleEvents.length} ITEMS
             </span>
           </div>
 
@@ -345,7 +410,7 @@ function App() {
                     <div className="card-content">
                       <div className="card-tags">
                         <span className="category-tag">
-                          {categoryInfo?.icon} {categoryInfo?.label}
+                          {categoryInfo?.icon} {categoryInfo?.label} · {contentLabel(event)}
                         </span>
                         <span className="sample-tag">
                       {event.status === "sourced" ? "官网自动同步" : "人工核实记录"}
@@ -358,20 +423,20 @@ function App() {
 
                       <div className="event-details">
                         <div className="detail-row">
-                          <span>⌖ 地点</span>
+                          <span>{event.contentType ? "⌖ 地区 / 渠道" : "⌖ 地点"}</span>
                           <strong>{event.location || "待确认"}</strong>
                         </div>
                         <div className="detail-row">
-                          <span>▦ 举办日期</span>
+                          <span>{event.contentType === "product" ? "▦ 发售时间" : event.contentType ? "▦ 资讯发布" : "▦ 举办日期"}</span>
                           <strong>
-                            {event.eventDates?.length > 0
+                            {event.contentType ? itemDate(event) : event.eventDates?.length > 0
                               ? event.eventDates.map(formatDate).join("、")
                               : formatPeriod(event.startAt, event.endAt)}
                           </strong>
                         </div>
                         <div className="detail-row">
-                          <span>◷ 报名信息</span>
-                          <strong>{formatRegistration(event)}</strong>
+                          <span>{event.contentType === "product" ? "◷ 价格" : event.contentType ? "◷ 信息说明" : "◷ 报名信息"}</span>
+                          <strong>{event.contentType === "product" ? event.priceLabel || "以官方为准" : event.contentType ? "发售与参与条件以原文为准" : formatRegistration(event)}</strong>
                         </div>
                       </div>
 
@@ -404,7 +469,7 @@ function App() {
                   : "没有找到符合条件的活动，试试其他分类或关键词。"}
               </p>
               <button type="button" onClick={resetFilters}>
-                查看全部活动 ↗
+                查看全部内容 ↗
               </button>
             </div>
           )}

@@ -12,8 +12,10 @@ from bs4 import BeautifulSoup
 
 if __package__:
     from .event_sources import collect_cosme, collect_parco
+    from .interest_sources import JUMP_URL, DIOR_URL, collect_nintendo, dior_lips, reborn_goods
 else:
     from event_sources import collect_cosme, collect_parco
+    from interest_sources import JUMP_URL, DIOR_URL, collect_nintendo, dior_lips, reborn_goods
 
 ROOT = Path(__file__).resolve().parent.parent
 EVENTS_FILE = ROOT / "src/data/events.json"
@@ -121,7 +123,13 @@ def merge_events(existing, incoming, source_key=SOURCE_KEY):
         if event.get("sourceKey") != source_key:
             raise ValueError("采集结果来源不一致")
         if event.get("officialUrl") in known_urls and known_urls[event["officialUrl"]] != event["id"]:
-            continue
+            other = result[known_urls[event["officialUrl"]]]
+            same_product_catalog = source_key == "reborn_goods" and event.get("contentType") == "product" and other.get("sourceKey") == source_key
+            if not same_product_catalog:
+                if other.get("sourceKey") == source_key and other.get("status") == "sourced":
+                    event = {**event, "id": other["id"], "sourceActive": True}
+                else:
+                    continue
         previous = result.get(event["id"], {})
         if previous.get("status") == "verified":
             continue
@@ -152,6 +160,9 @@ SOURCE_INFO = {
     "sunshinecity": ("Sunshine City", "https://sunshinecity.jp/event/"),
     "parco": ("涩谷 PARCO", "https://shibuya.parco.jp/event/"),
     "cosme": ("@cosme TOKYO", "https://www.cosme.net/store/flagship/tokyo/"),
+    "reborn_goods": ("集英社 REBORN! 商品日历", JUMP_URL),
+    "nintendo": ("任天堂 / Splatoon 3", "https://www.nintendo.com/jp/switch/av5ja/index.html"),
+    "dior": ("Dior 日本新品", DIOR_URL),
 }
 
 
@@ -216,6 +227,9 @@ def main():
                 "sunshinecity": lambda: collect_sunshine(fetch(FEED_URL), now.date(), now.isoformat()),
                 "parco": lambda: collect_parco(fetch, now.date(), now.isoformat()),
                 "cosme": lambda: collect_cosme(fetch, now.date(), now.isoformat()),
+                "reborn_goods": lambda: reborn_goods(fetch(JUMP_URL), now.date(), now.isoformat()),
+                "nintendo": lambda: collect_nintendo(fetch, now.date(), now.isoformat()),
+                "dior": lambda: dior_lips(fetch(DIOR_URL), now.date(), now.isoformat()),
             }
         merged, status = update_sources(existing, previous, collectors, now.isoformat())
         if status["status"] == "failed":

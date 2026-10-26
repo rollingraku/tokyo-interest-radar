@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-手动更新全部三个官网来源（项目根目录）：
+手动更新全部六个官网来源（项目根目录）：
 
 ```bash
 .venv/bin/python -m pip install -r scripts/requirements.txt
@@ -20,13 +20,16 @@ npm run dev
 
 ## 每日更新的范围
 
-当前每天采集三个官方来源，不使用 AI：
+当前每天尝试采集六个官方来源，不使用 AI：
 
 | 来源 | 覆盖内容 | 采集方式 |
 | --- | --- | --- |
 | [Sunshine City](https://sunshinecity.jp/event/) | 游戏、动漫、角色活动及部分服装活动 | 官方 `eventDatas` 数据 |
 | [涩谷 PARCO](https://shibuya.parco.jp/event/) | POPUP 时尚快闪 | 官方列表及分页中的日期、楼层、配图 |
 | [@cosme TOKYO](https://www.cosme.net/store/flagship/tokyo/) | 美妆品牌活动 | 官方门店列表链接的文章正文，匹配明确的“開催期間” |
+| [集英社 REBORN! 商品日历](https://www.shonenjump.com/j/jumpcalendar/sakuhin/reborn/) | REBORN! 周边 | 保留官方发售日期精度，月份不推测为具体日期 |
+| [任天堂 / Splatoon 3](https://www.nintendo.com/jp/switch/av5ja/index.html) | 官方资讯、周边与联名 | 官方 RSS 最近十篇 + Splatoon 3 公告 + 一篇明确标为历史的官方联名公告 |
+| [Dior 日本新品](https://www.dior.com/ja_jp/beauty/page/all-new-arrivals.html) | 新品栏目唇妆 | 商品名、官方图、价格；不推测发售日，色号变体合并为系列 |
 
 - 活动使用稳定 ID 和详情 URL 去重，`sourceKey` 区分来源；原有人工记录不被覆盖。
 - 自动记录为 `sourced`，显示“官网自动同步”，不自动变成 `verified`；报名信息没有证据时保留未知。
@@ -74,3 +77,15 @@ npm run build
 PARCO 采集详情正文，@cosme 复用已抓取的文章正文。当前这批活动的简短中文介绍保存在 `scripts/description_notes.json`，每条带原文锚点；每天同步时只有锚点仍存在才保留中文文案。未来未整理或原文变化的新活动自动显示官网原文摘录，不调用翻译 API，也不保证所有未来活动自动生成中文。
 
 正文不可访问时使用活动名称与地点生成简短说明，不影响该活动日期等列表信息的更新。简介仅是内容摘要，不代表整条活动已人工核实。
+
+## 两个人的兴趣（2026-10-26）
+
+配置在 `src/data/interests.json`。我关注：家庭教师 REBORN!、Dior/CHANEL/YSL/Armani 口红；男朋友关注：游戏周边与联名、Splatoon。日本发售优先，线下活动限定现有东京周边来源。页面有两人视角和四个专题，不是账号或权限系统，收藏仍是各浏览器独立保存。
+
+新增 `scripts/interest_sources.py`，已加入原来的每日工作流。新品/周边卡片显示发售信息和价格，新闻显示发布日期；不把发布时间当作发售日，不把历史资讯标为进行中活动。游戏资讯目前只接入任天堂，不代表全部游戏品牌；REBORN! 当前自动来源为商品日历，不代表动画官网新闻已同步。
+
+本次 Dior 曾成功读取，但之后刷新返回 403。首批内容来自本次成功获取的官方快照，页面和状态文件明确保留失败状态与上次成功时间；云端后续会继续尝试，失败不删除旧内容。CHANEL、YSL、Armani 和 REBORN! 动画新闻当前只提供官方入口，不假称已自动同步；不绕过官网访问限制。
+
+初次试跑：REBORN! 周边 15 条、任天堂资讯 2 条、Dior 唇妆系列快照 7 条。既有 30 条加上新内容，当前可见 54 条，数字会随官网变化。包含早前公告/已发售商品，请以显示的原始日期和库存提示为准。
+
+筛选逻辑测试：`node --test src/lib/interests.test.js`，已加入云端构建前检查。兴趣条目与一般活动保存在同一个 `events.json`，使用 `contentType` 区分，原有活动筛选和收藏保留。
