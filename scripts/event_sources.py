@@ -5,6 +5,12 @@ from datetime import date
 from urllib.parse import parse_qs, urljoin, urlparse
 
 from bs4 import BeautifulSoup
+import requests
+
+if __package__:
+    from .descriptions import describe_event
+else:
+    from descriptions import describe_event
 
 PARCO_URL = "https://shibuya.parco.jp/event/"
 COSME_URL = "https://www.cosme.net/store/flagship/tokyo/"
@@ -110,7 +116,20 @@ def collect_parco(fetch, today, now):
         events.extend(found)
         pending.update(more)
         visited.add(page)
-    return list({event["id"]: event for event in events}.values())
+    unique = list({event["id"]: event for event in events}.values())
+    result = SourceEvents()
+    for event in unique:
+        try:
+            soup = BeautifulSoup(fetch(event["officialUrl"]), "html.parser")
+            body = soup.select_one(".event-post-edit")
+            if not body:
+                raise ValueError("活动正文暂不可用")
+            describe_event(event, body.get_text("\n", strip=True))
+        except (requests.RequestException, ValueError) as error:
+            describe_event(event, "")
+            result.warnings.append(f"活动 {event['id']} 简介暂未提取：{error}")
+        result.append(event)
+    return result
 
 
 def cosme_links(html):
@@ -185,6 +204,7 @@ def cosme_article(html, item, today, now):
                         "location": "@cosme TOKYO（正文明确提及）"})
     if "完全予約制" in text or "事前予約" in text:
         event["registrationStatus"] = "partial_reservation"
+    describe_event(event, body.get_text("\n", strip=True))
     return event
 
 

@@ -32,6 +32,8 @@ class OfficialSourceTests(unittest.TestCase):
         pages = {
             PARCO_URL: parco_card() + '<a href="/event/?page=2">次へ</a>',
             PARCO_URL + "?page=2": parco_card() + parco_card(2),
+            "https://shibuya.parco.jp/event/detail/?id=1": '<div class="event-post-edit">限定コレクションを展示するポップアップストアです。</div>',
+            "https://shibuya.parco.jp/event/detail/?id=2": '<div class="event-post-edit">新作のバッグやウェアを展開する期間限定ショップです。</div>',
         }
         events = collect_parco(pages.__getitem__, TODAY, NOW)
         self.assertEqual([event["id"] for event in events], ["parco-1", "parco-2"])
