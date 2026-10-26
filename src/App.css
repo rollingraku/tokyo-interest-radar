@@ -836,6 +836,14 @@
   text-decoration: underline;
 }
 
+.has-reference .cover-source {
+  top: 12px;
+  bottom: auto;
+  left: 12px;
+  right: auto;
+  max-width: calc(100% - 72px);
+}
+
 /* 活动卡片：统一封面比例、阅读节奏与底部操作位置。 */
 .event-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));

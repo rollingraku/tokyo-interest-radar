@@ -86,7 +86,7 @@ function EventCover({ event, children }) {
   const hasImage = event.imageUrl && failedUrl !== event.imageUrl;
 
   return (
-    <div className={`card-cover ${hasImage ? "has-image" : ""}`}>
+    <div className={`card-cover ${hasImage ? "has-image" : ""} ${hasImage && event.imageKind === "franchise_art" ? "has-reference" : ""}`}>
       {hasImage ? (
         <>
           <img
@@ -105,7 +105,7 @@ function EventCover({ event, children }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            官方图片 ↗
+            {event.imageKind === "franchise_art" ? "作品插画 · 非商品图 ↗" : "官方图片 ↗"}
           </a>
         </>
       ) : (
