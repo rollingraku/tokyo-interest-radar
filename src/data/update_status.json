@@ -1,6 +1,38 @@
 {
-  "lastSuccessfulAt": "2026-10-26T11:29:29.718658+09:00",
-  "sourceName": "Sunshine City 官方活动列表",
-  "sourceUrl": "https://sunshinecity.jp/event/",
-  "eventCount": 10
+  "lastSuccessfulAt": "2026-10-26T19:31:51.663393+09:00",
+  "lastAttemptAt": "2026-10-26T19:31:51.663393+09:00",
+  "status": "success",
+  "sourceName": "多个官方来源",
+  "sources": {
+    "sunshinecity": {
+      "sourceName": "Sunshine City",
+      "sourceUrl": "https://sunshinecity.jp/event/",
+      "lastAttemptAt": "2026-10-26T19:31:51.663393+09:00",
+      "lastSuccessfulAt": "2026-10-26T19:31:51.663393+09:00",
+      "eventCount": 10,
+      "status": "success"
+    },
+    "parco": {
+      "sourceName": "涩谷 PARCO",
+      "sourceUrl": "https://shibuya.parco.jp/event/",
+      "lastAttemptAt": "2026-10-26T19:31:51.663393+09:00",
+      "lastSuccessfulAt": "2026-10-26T19:31:51.663393+09:00",
+      "eventCount": 11,
+      "status": "success"
+    },
+    "cosme": {
+      "sourceName": "@cosme TOKYO",
+      "sourceUrl": "https://www.cosme.net/store/flagship/tokyo/",
+      "lastAttemptAt": "2026-10-26T19:31:51.663393+09:00",
+      "lastSuccessfulAt": "2026-10-26T19:31:51.663393+09:00",
+      "eventCount": 5,
+      "status": "success",
+      "warnings": [
+        "文章 2712064：@cosme 出现多个不同举办期间"
+      ]
+    }
+  },
+  "successfulSourceCount": 3,
+  "attemptedSourceCount": 3,
+  "eventCount": 30
 }

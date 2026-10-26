@@ -236,8 +236,19 @@ function App() {
                 最近同步：{new Date(updateStatus.lastSuccessfulAt).toLocaleString("zh-CN", {
                   timeZone: "Asia/Tokyo", month: "numeric", day: "numeric",
                   hour: "2-digit", minute: "2-digit", hour12: false,
-                })}（东京时间） · Sunshine City
+                })}（东京时间）
+                {updateStatus.sources && ` · ${updateStatus.successfulSourceCount}/${updateStatus.attemptedSourceCount} 个官网同步成功`}
+                {updateStatus.status === "partial" && " · 部分来源暂未更新，已保留旧信息"}
               </p>
+              <div className="source-list" aria-label="活动数据来源">
+                {Object.entries(updateStatus.sources || {}).map(([key, source]) => (
+                  <a key={key} href={source.sourceUrl} target="_blank" rel="noopener noreferrer"
+                    title={source.lastSuccessfulAt ? `最近成功：${new Date(source.lastSuccessfulAt).toLocaleString("zh-CN", { timeZone: "Asia/Tokyo" })}` : "尚未成功同步"}>
+                    {source.sourceName} · {source.status === "failed" ? "暂未更新" : `${source.eventCount} 条`}
+                    {source.warnings?.length > 0 && `（${source.warnings.length} 篇待确认）`}
+                  </a>
+                ))}
+              </div>
             </div>
 
             <span className="demo-label">✳ OFFICIAL SOURCES · 官方来源</span>
@@ -343,6 +354,7 @@ function App() {
 
                       <h3>{event.title}</h3>
                       <p className="card-description">{event.description}</p>
+                      <p className="card-source">来源：{event.sourceName}</p>
 
                       <div className="event-details">
                         <div className="detail-row">

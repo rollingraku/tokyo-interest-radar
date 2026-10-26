@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-手动更新官网数据（项目根目录）：
+手动更新全部三个官网来源（项目根目录）：
 
 ```bash
 .venv/bin/python -m pip install -r scripts/requirements.txt
@@ -20,17 +20,27 @@ npm run dev
 
 ## 每日更新的范围
 
-- 来源：Sunshine City 官网公开的 `https://sunshinecity.jp/js/event.js`，它也是官方活动列表使用的数据。
-- 自动发现符合兴趣分类的活动，获取标题、举办日期、会场、简介和官方配图，不自动生成中文翻译。
-- 新记录标为 `sourced`，页面显示“官网自动同步”，不写入人工验证日期。报名信息未知时显示“待确认”。
-- 图片由官网提供，保留来源；目前不能自动识别是否为实拍。既有游戏、美妆封面仍使用本地官方图片。
-- 同一活动按官方 ID 去重，每天更新已有字段；成功抓取时不再出现或已结束的自动记录停止展示，保留历史数据。其他来源和人工审核记录不被覆盖。
-- 日期缺失、URL 异常、空数据或网络失败时不覆盖原有数据；保持上次成功同步时间。
-- 仅更新这个来源；不是全网搜索，也不会更新原来其他官网的活动信息。后续可以逐个增加官网适配器。
+当前每天采集三个官方来源，不使用 AI：
+
+| 来源 | 覆盖内容 | 采集方式 |
+| --- | --- | --- |
+| [Sunshine City](https://sunshinecity.jp/event/) | 游戏、动漫、角色活动及部分服装活动 | 官方 `eventDatas` 数据 |
+| [涩谷 PARCO](https://shibuya.parco.jp/event/) | POPUP 时尚快闪 | 官方列表及分页中的日期、楼层、配图 |
+| [@cosme TOKYO](https://www.cosme.net/store/flagship/tokyo/) | 美妆品牌活动 | 官方门店列表链接的文章正文，匹配明确的“開催期間” |
+
+- 活动使用稳定 ID 和详情 URL 去重，`sourceKey` 区分来源；原有人工记录不被覆盖。
+- 自动记录为 `sourced`，显示“官网自动同步”，不自动变成 `verified`；报名信息没有证据时保留未知。
+- 不把新闻发布日期当作活动日期。日期缺失、多个期间冲突的美妆文章单独跳过并记录提示，其已有记录保留。
+- PARCO 当前只接入 POPUP 快闪，不把音乐、电影和一般展览硬归类为服装；后续可扩展分类。
+- 一个来源失败时只保留它的旧数据，其他成功来源正常更新和部署；全部失败时退出失败，保留原有数据。
+- 一次成功同步后，该来源不再有效的自动记录停止展示，历史数据保留。人工记录不受自动下架规则影响。
+- 页面展示各来源状态、活动数量和每张卡片的来源；抓取时间不能代替人工核实时间。
+- 官方配图保留来源，但目前不能可靠区分海报与实拍；不自动生成中文翻译。
+- 仍是指定官网适配器，不是全网搜索。扩展其他官网需要确认格式后逐个接入。
 
 ## Mac 关机后仍更新：GitHub Actions
 
-工作流已经准备在 `.github/workflows/daily-update.yml`，**上传 GitHub 前不会执行，当前尚未启用云端任务**。
+工作流位于 `.github/workflows/daily-update.yml`。项目已完成 GitHub Pages 部署；2026-10-26 已核对之前四天的定时采集与部署均成功。下面保留配置和恢复步骤。
 
 1. 在 GitHub 创建仓库，默认分支使用 `main`，上传本项目的源码和 `.github` 目录。不要上传 `.venv`、`node_modules`、`.env` 或任何密钥，已在 `.gitignore` 排除。
 2. 仓库的 Actions 页面允许工作流运行，然后选择 **Update events and deploy → Run workflow** 试跑一次。
@@ -52,3 +62,9 @@ npm run build
 ```
 
 旧的单页抓取、解析、人工审核发布流程仍保留：`fetch_events.py` → `parse_events.py` → 人工审核 → `publish_events.py`。每日同步使用独立的 `update_events.py`，不改变旧流程。
+
+## 2026-10-26 来源扩展
+
+每日更新由 1 个来源扩展到 3 个。实际试跑得到 Sunshine City 10 条、PARCO 11 条、@cosme TOKYO 5 条，加上原有 4 条人工记录，当前共 30 张可见卡片（数量会随日期和官网变化）。一篇美妆文章含不同举办期间，已跳过而未猜测日期。
+
+新增适配器在 `scripts/event_sources.py`，定时入口仍是 `scripts/update_events.py`，无需更改 Actions 计划。推送此版本并部署成功后，云端才会使用新来源；本机试跑不等于已发布。来源扩展详情见 `tokyo-interest-radar-update-2026-10-26.md`。

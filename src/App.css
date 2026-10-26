@@ -980,3 +980,9 @@
 }
 
 .update-note { font-size: 12px !important; color: #728569 !important; line-height: 1.7; }
+
+.source-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.source-list a { font-size: 11px; color: #53684b; background: #edf1e7; padding: 6px 10px; border-radius: 6px; text-decoration: none; line-height: 1.6; }
+.source-list a:hover { text-decoration: underline; }
+.source-list a:focus-visible { outline: 3px solid #79976e; outline-offset: 2px; }
+.card-source { color: #72796e; font-size: 11px; line-height: 1.7; margin: -8px 0 14px; }
