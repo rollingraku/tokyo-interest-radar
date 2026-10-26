@@ -23,7 +23,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "同人作品、展示、試遊、企業出展、ステージ、コスプレ、ゲーム大会が集まる文化交流イベントです。"
-    ]
+    ],
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "tokyo-anime-next-2026",
@@ -40,7 +42,9 @@
     "lastVerifiedAt": "2026-10-21",
     "emoji": "🌸",
     "tag": "动漫活动",
-    "status": "verified"
+    "status": "verified",
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "tokyo-beauty-week-2026",
@@ -61,7 +65,9 @@
     "imageUrl": "/images/events/tokyo-beauty-week-2026.png",
     "imageOriginalUrl": "https://tokyobeautyweek.jp/assets/img/ogp_2026.png",
     "imageSourceUrl": "https://tokyobeautyweek.jp/",
-    "imageAlt": "Tokyo Beauty Week 2026 官方主视觉"
+    "imageAlt": "Tokyo Beauty Week 2026 官方主视觉",
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "tommy-frgmt-2026",
@@ -78,7 +84,9 @@
     "lastVerifiedAt": "2026-10-21",
     "emoji": "👗",
     "tag": "品牌快闪",
-    "status": "verified"
+    "status": "verified",
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-39096",
@@ -112,7 +120,9 @@
       "venue": [
         "バンダイナムコ Cross Store 東京"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-39079",
@@ -150,7 +160,9 @@
         "展示ホールD",
         "噴水広場"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-39060",
@@ -188,7 +200,9 @@
       "venue": [
         "展示ホールD"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-38889",
@@ -222,7 +236,9 @@
       "venue": [
         "バンダイナムコ Cross Store 東京"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-38867",
@@ -256,7 +272,9 @@
       "venue": [
         "展示ホールA"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-26T02:29:33Z"
   },
   {
     "id": "sunshine-38799",
@@ -290,7 +308,9 @@
       "venue": [
         "サンシャイン60展望台 てんぼうパーク"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-38584",
@@ -324,7 +344,9 @@
       "venue": [
         "サンシャイン60展望台 てんぼうパーク"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-38509",
@@ -358,7 +380,9 @@
       "venue": [
         "展示ホールA"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-38404",
@@ -392,7 +416,9 @@
       "venue": [
         "サンシャインシティ"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-38403",
@@ -428,7 +454,9 @@
         "展示ホールB",
         "展示ホールC"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-22T21:27:41+09:00",
+    "contentUpdatedAt": "2026-10-22T21:27:41+09:00"
   },
   {
     "id": "sunshine-39099",
@@ -466,7 +494,9 @@
         "展示ホールC",
         "展示ホールD"
       ]
-    }
+    },
+    "firstSeenAt": "2026-10-26T02:29:33Z",
+    "contentUpdatedAt": "2026-10-26T02:29:33Z"
   },
   {
     "id": "parco-8979",
@@ -502,7 +532,9 @@
     "descriptionEvidence": [
       "シルバービーズの刺繍",
       "Sara Finchleyのジュエリーをオーダーいただける"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-8980",
@@ -539,7 +571,9 @@
       "今季のテーマは「鼓動と優しさの伝播－Heartdemic」",
       "Logo T-Shirt Horizontal Triple Heart",
       "Big Scarf"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-8981",
@@ -576,7 +610,9 @@
       "絞りの BUNZABURO",
       "プリーツの Jens",
       "オリジナルのプリントアイテムを販売"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-9014",
@@ -612,7 +648,9 @@
     "descriptionEvidence": [
       "2026年秋冬コレクションから編集したセレクション",
       "日本で初めて直接商品を展開する機会"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-9000",
@@ -648,7 +686,9 @@
     "descriptionEvidence": [
       "MINI ANTHOS BAG (TAUPE)",
       "FOLLY KEYRING *SHIBUYA PARCO EDITION"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-9011",
@@ -685,7 +725,9 @@
       "レディースシューズブランド",
       "快適な履き心地",
       "Libella Mary jane Flats"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-9043",
@@ -721,7 +763,9 @@
     "descriptionEvidence": [
       "自然な風合いと繊細なディテール",
       "LACE SLIP DRESS (DEEP BURGUNDY)"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-9001",
@@ -758,7 +802,9 @@
       "POOLDE 2026 AW",
       "Melted Wedge Boots",
       "最速受注"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-8998",
@@ -794,7 +840,9 @@
     "descriptionEvidence": [
       "海外雑誌をNEWSSTANDスタイルで展開",
       "アートワークをポスターとして"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-8994",
@@ -831,7 +879,9 @@
       "機能的かつ高品質なウェアとバッグ",
       "最新の26AWコレクション",
       "コラボレーションアイテム"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "parco-8939",
@@ -867,7 +917,9 @@
     "descriptionEvidence": [
       "ファッションはもちろんアートやカルチャー",
       "TEMPORARY SHOP"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "cosme-2713143",
@@ -903,7 +955,9 @@
       "オードパルファン",
       "全3種類の香り",
       "オリジナルフォトコンテンツ"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "cosme-2713180",
@@ -938,7 +992,9 @@
     "descriptionEvidence": [
       "ホリデー限定リップやコフレのお試し",
       "ファンデーションのタッチアップ（完全予約制）"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "cosme-2712936",
@@ -973,7 +1029,9 @@
     "descriptionEvidence": [
       "その日の気分で香りを選ぶ",
       "ミニアソートセット（20g×3本）"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "cosme-2712761",
@@ -1009,7 +1067,9 @@
       "運命クレンジング診断",
       "ハンドデモンストレーション",
       "50mLサイズ（ミニボトル）"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "cosme-2712985",
@@ -1045,7 +1105,9 @@
       "ポストカード入りの限定商品",
       "事前予約制（整理券）",
       "カプセルくじ"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T19:38:24+09:00",
+    "contentUpdatedAt": "2026-10-26T19:52:42+09:00"
   },
   {
     "id": "reborn_goods-97a7b9de7b67f24a",
@@ -1081,7 +1143,9 @@
       "title": "家庭教師ヒットマンREBORN!　ちょいデカアクリルキーホルダー Grand Arcanist",
       "maker": "ベルハウス",
       "price": "990円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-6d6db3e10f0d2b03",
@@ -1117,7 +1181,9 @@
       "title": "家庭教師ヒットマンREBORN!　トレーディング缶バッジ Grand Arcanist",
       "maker": "ベルハウス",
       "price": "550円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-622790dbd0461041",
@@ -1153,7 +1219,9 @@
       "title": "家庭教師ヒットマンREBORN!　トレーディングアクリルカード Grand Arcanist",
       "maker": "ベルハウス",
       "price": "660円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-6bd0c529c8c12909",
@@ -1189,7 +1257,9 @@
       "title": "家庭教師ヒットマンREBORN!　アクリルスタンド Grand Arcanist",
       "maker": "ベルハウス",
       "price": "1,650円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-b110868bf0d19482",
@@ -1225,7 +1295,9 @@
       "title": "家庭教師ヒットマンREBORN!　トレーディングステッカー Grand Arcanist",
       "maker": "ベルハウス",
       "price": "550円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-d7e1f05dea97ffb8",
@@ -1261,7 +1333,9 @@
       "title": "家庭教師ヒットマンREBORN!　クリアファイル Grand Arcanist",
       "maker": "ベルハウス",
       "price": "495円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-ce09c4b3d7ddecc4",
@@ -1296,7 +1370,9 @@
       "title": "家庭教師ヒットマンREBORN! ぴくりあプレート hologram レトロファッション 05.六道 骸",
       "maker": "amie(大網株式会社)",
       "price": "880円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-d0422cfd8fca9d77",
@@ -1331,7 +1407,9 @@
       "title": "家庭教師ヒットマンREBORN! ぴくりあプレート hologram レトロファッション 04.雲雀恭弥",
       "maker": "amie(大網株式会社)",
       "price": "880円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-90c6b97f30e61a69",
@@ -1366,7 +1444,9 @@
       "title": "家庭教師ヒットマンREBORN! ぴくりあプレート hologram レトロファッション 03.山本 武",
       "maker": "amie(大網株式会社)",
       "price": "880円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-5415b717a38a681b",
@@ -1401,7 +1481,9 @@
       "title": "家庭教師ヒットマンREBORN! ぴくりあプレート hologram レトロファッション 02.獄寺隼人",
       "maker": "amie(大網株式会社)",
       "price": "880円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-22f2729ba5326c81",
@@ -1436,7 +1518,9 @@
       "title": "家庭教師ヒットマンREBORN! ぴくりあプレート hologram レトロファッション 01.沢田綱吉&リボーン",
       "maker": "amie(大網株式会社)",
       "price": "880円"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-6e7313797965547e",
@@ -1471,7 +1555,9 @@
       "title": "家庭教師ヒットマンREBORN! フェイスポーチvol.2",
       "maker": "BANDAI SPIRITS",
       "price": "アミューズメント専用景品"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-71f655cd3ceeb427",
@@ -1506,7 +1592,9 @@
       "title": "家庭教師ヒットマンREBORN! Grandista-KYOYA HIBARI-",
       "maker": "BANDAI SPIRITS",
       "price": "アミューズメント専用景品"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-c21b41cf3b1c9c65",
@@ -1541,7 +1629,9 @@
       "title": "るかっぷ　家庭教師ヒットマンREBORN!　雲雀恭弥",
       "maker": "メガハウス",
       "price": "未定"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "reborn_goods-6ee24eff5aa9e07b",
@@ -1576,7 +1666,9 @@
       "title": "るかっぷ　家庭教師ヒットマンREBORN!　沢田綱吉",
       "maker": "メガハウス",
       "price": "未定"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "nintendo-67c832a3c6a7ce92",
@@ -1609,7 +1701,9 @@
       "listUrl": "https://www.nintendo.com/jp/switch/av5ja/index.html",
       "publishedAt": "2026.6.10",
       "title": "『スプラトゥーン レイダース』の最新映像を公開。『スプラトゥーン3』ではさまざまなイベントも開催。"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "nintendo-aaa37ab51f98de8e",
@@ -1644,7 +1738,9 @@
       "publishedAt": "2026.8.17",
       "title": "セブン‐イレブンで『スプラトゥーン レイダース』のグッズがもらえるキャンペーンを実施。『スプラトゥーン3』の新作一番くじも発売決定。",
       "url": "https://www.nintendo.com/jp/topics/article/cc1b34ac-85a9-4549-8db5-b0f64e1ad4f2"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-E100000112",
@@ -1685,7 +1781,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "ケア リッププランバー、クチュールリップ、リップ ライナー"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-Y0000391",
@@ -1726,7 +1824,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "贅沢な煌めきを纏うメイクアップ アクセサリーのようなリップ カラー"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-E000002219",
@@ -1767,7 +1867,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "大粒のグリッターが煌めく2in1のリップ カラー"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-E000002220",
@@ -1803,7 +1905,9 @@
       "name": "ルージュ ディオール シークイン リキッド デュオ (ホリデー コレクション 2026 限定品)",
       "detail": "大粒のグリッターが煌めく2in1のリップ カラー",
       "price": "¥ 6,930"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-E000002223",
@@ -1844,7 +1948,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "ベルベット・サテン・スパークル仕上げの限定4品"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-E000002222",
@@ -1880,7 +1986,9 @@
       "name": "ルージュ ディオール (ホリデー コレクション 2026 限定品)",
       "detail": "ベルベット・サテン・スパークル仕上げの限定4品",
       "price": "¥ 6,600"
-    }
+    },
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-Y0000242",
@@ -1921,7 +2029,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "柔らかに唇を彩る密着リキッド ブラー リップ"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-Y0000265",
@@ -1962,7 +2072,9 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "ひと塗りで大胆な仕上がりを叶える濃密発色リップ"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   },
   {
     "id": "dior-Y0000108",
@@ -2003,6 +2115,8 @@
     "descriptionMethod": "editorial",
     "descriptionEvidence": [
       "なめらかなツヤと美しい色持ちを叶えるリップ"
-    ]
+    ],
+    "firstSeenAt": "2026-10-26T20:15:28+09:00",
+    "contentUpdatedAt": "2026-10-26T20:15:28+09:00"
   }
 ]

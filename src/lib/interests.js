@@ -14,3 +14,14 @@ export function matchesAudience(item, audience, topics) {
 export function contentLabel(item) {
   return { product: "新品 / 周边", news: "官方资讯", collab: "联名资讯" }[item.contentType] || "线下活动";
 }
+
+export function newestFirst(items) {
+  const timestamp = (item) => {
+    for (const value of [item.contentUpdatedAt, item.firstSeenAt, item.publishedAt, item.lastVerifiedAt]) {
+      const parsed = value ? Date.parse(value) : NaN;
+      if (Number.isFinite(parsed)) return parsed;
+    }
+    return 0;
+  };
+  return [...items].sort((a, b) => timestamp(b) - timestamp(a));
+}

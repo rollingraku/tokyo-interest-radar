@@ -11,9 +11,11 @@ import requests
 from bs4 import BeautifulSoup
 
 if __package__:
+    from .event_updates import with_update_times
     from .event_sources import collect_cosme, collect_parco
     from .interest_sources import JUMP_URL, DIOR_URL, collect_nintendo, dior_lips, reborn_goods
 else:
+    from event_updates import with_update_times
     from event_sources import collect_cosme, collect_parco
     from interest_sources import JUMP_URL, DIOR_URL, collect_nintendo, dior_lips, reborn_goods
 
@@ -130,10 +132,10 @@ def merge_events(existing, incoming, source_key=SOURCE_KEY):
                     event = {**event, "id": other["id"], "sourceActive": True}
                 else:
                     continue
-        previous = result.get(event["id"], {})
+        previous = next((item for item in existing if item["id"] == event["id"]), {})
         if previous.get("status") == "verified":
             continue
-        result[event["id"]] = {**previous, **event}
+        result[event["id"]] = with_update_times(previous, {**previous, **event}, event.get("fetchedAt"))
     return list(result.values())
 
 

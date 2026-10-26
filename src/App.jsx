@@ -3,7 +3,7 @@ import "./App.css";
 import eventData from "./data/events.json";
 import updateStatus from "./data/update_status.json";
 import interestConfig from "./data/interests.json";
-import { matchesTopic, matchesAudience, contentLabel } from "./lib/interests";
+import { matchesTopic, matchesAudience, contentLabel, newestFirst } from "./lib/interests";
 
 const categories = [
   { id: "all", label: "全部", icon: "✦" },
@@ -148,7 +148,7 @@ function App() {
   const visibleEvents = useMemo(() => {
     const query = keyword.trim().toLocaleLowerCase();
 
-    return events.filter((event) => {
+    return newestFirst(events.filter((event) => {
       const categoryMatch =
         category === "all" || event.category === category;
 
@@ -169,7 +169,7 @@ function App() {
         && matchesAudience(event, audience, interestConfig.topics)
         && (topic === "all" || matchesTopic(event, topic, interestConfig.topics))
         && (contentType === "all" || (event.contentType || "event") === contentType);
-    });
+    }));
   }, [category, view, keyword, favorites, audience, topic, contentType]);
 
   function toggleFavorite(id) {
@@ -372,7 +372,7 @@ function App() {
             </div>
 
             <span className="result-count">
-              SHOWING {visibleEvents.length} ITEMS
+              最新更新优先 · {visibleEvents.length} 条
             </span>
           </div>
 
