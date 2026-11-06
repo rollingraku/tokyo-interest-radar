@@ -1,60 +1,60 @@
 {
-  "lastSuccessfulAt": "2026-11-05T13:27:43.600439+09:00",
-  "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
+  "lastSuccessfulAt": "2026-11-06T13:25:52.099670+09:00",
+  "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
   "status": "partial",
   "sourceName": "多个官方来源",
   "sources": {
     "sunshinecity": {
       "sourceName": "Sunshine City",
       "sourceUrl": "https://sunshinecity.jp/event/",
-      "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
+      "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
       "lastSuccessfulAt": "2026-10-29T12:41:31.836729+09:00",
       "eventCount": 9,
       "status": "failed",
-      "error": "活动详情 URL 格式异常"
+      "error": "来源链接必须属于 Sunshine City 官网"
     },
     "parco": {
       "sourceName": "涩谷 PARCO",
       "sourceUrl": "https://shibuya.parco.jp/event/",
-      "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
-      "lastSuccessfulAt": "2026-11-05T13:27:43.600439+09:00",
-      "eventCount": 16,
+      "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
+      "lastSuccessfulAt": "2026-11-06T13:25:52.099670+09:00",
+      "eventCount": 17,
       "status": "success"
     },
     "cosme": {
       "sourceName": "@cosme TOKYO",
       "sourceUrl": "https://www.cosme.net/store/flagship/tokyo/",
-      "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
-      "lastSuccessfulAt": "2026-11-05T13:27:43.600439+09:00",
+      "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
+      "lastSuccessfulAt": "2026-11-06T13:25:52.099670+09:00",
       "eventCount": 2,
       "status": "success"
     },
     "reborn_goods": {
       "sourceName": "集英社 REBORN! 商品日历",
       "sourceUrl": "https://www.shonenjump.com/j/jumpcalendar/sakuhin/reborn/",
-      "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
-      "lastSuccessfulAt": "2026-11-05T13:27:43.600439+09:00",
+      "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
+      "lastSuccessfulAt": "2026-11-06T13:25:52.099670+09:00",
       "eventCount": 3,
       "status": "success"
     },
     "nintendo": {
       "sourceName": "任天堂 / Splatoon 3",
       "sourceUrl": "https://www.nintendo.com/jp/switch/av5ja/index.html",
-      "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
-      "lastSuccessfulAt": "2026-11-05T13:27:43.600439+09:00",
+      "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
+      "lastSuccessfulAt": "2026-11-06T13:25:52.099670+09:00",
       "eventCount": 3,
       "status": "success"
     },
     "dior": {
       "sourceName": "Dior 日本新品",
       "sourceUrl": "https://www.dior.com/ja_jp/beauty/page/all-new-arrivals.html",
-      "lastAttemptAt": "2026-11-05T13:27:43.600439+09:00",
-      "lastSuccessfulAt": "2026-11-05T13:27:43.600439+09:00",
+      "lastAttemptAt": "2026-11-06T13:25:52.099670+09:00",
+      "lastSuccessfulAt": "2026-11-06T13:25:52.099670+09:00",
       "eventCount": 7,
       "status": "success"
     }
   },
   "successfulSourceCount": 5,
   "attemptedSourceCount": 6,
-  "eventCount": 44
+  "eventCount": 45
 }
